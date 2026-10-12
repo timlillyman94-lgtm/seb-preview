@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEB Collective | Homepage concept (mockup)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #142c42;
+    --navy-2: #1d3d5a;
+    --blue: #1b6a96;
+    --sky: #86a8e7;
+    --sky-soft: #e8eefb;
+    --cream: #faf6ef;
+    --sand: #f3ecdf;
+    --amber: #f4b740;
+    --amber-dark: #e0a226;
+    --ink: #1c2733;
+    --muted: #556270;
+    --line: #e3dccf;
+    --white: #ffffff;
+    --radius: 18px;
+    --shadow: 0 10px 30px rgba(20, 44, 66, 0.10);
+    --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --text: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--text); color: var(--ink); background: var(--cream); font-size: 18px; line-height: 1.6; }
+  img { max-width: 100%; display: block; }
+  a { color: var(--blue); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  h1, h2, h3 { font-family: var(--display); color: var(--navy); line-height: 1.12; margin: 0 0 16px; font-weight: 700; letter-spacing: -0.4px; }
+  h1 { font-size: clamp(34px, 4.3vw, 52px); letter-spacing: -1px; }
+  h2 { font-size: clamp(28px, 3.2vw, 40px); letter-spacing: -0.7px; }
+  h3 { font-size: 22px; }
+  p { margin: 0 0 16px; }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+  .lead { font-size: 20px; color: var(--muted); max-width: 640px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 17px; text-decoration: none; border-radius: 999px; padding: 14px 24px; transition: transform .15s ease, background .15s ease; white-space: nowrap; }
+  @media (min-width: 981px) { .concept .wrap > span { font-size: 13.5px; } }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--amber); color: var(--navy); box-shadow: 0 6px 16px rgba(224, 162, 38, .35); }
+  .btn-primary:hover { background: var(--amber-dark); }
+  .btn-ghost { color: var(--navy); border: 2px solid var(--navy); }
+  .btn-light { color: var(--white); border: 2px solid rgba(255,255,255,.7); }
+  .ph { background: #fff7e0; border: 1.5px dashed #d29a1c; color: #7a5300; border-radius: 6px; padding: 1px 6px; font-size: .92em; white-space: normal; }
+
+  /* Concept banner */
+  .concept { background: var(--navy); color: #dfe8f3; font-size: 14px; }
+  .concept .wrap { display: flex; gap: 16px; align-items: center; justify-content: space-between; padding-top: 10px; padding-bottom: 10px; flex-wrap: nowrap; }
+  .concept button { flex: 0 0 auto; }
+  .concept strong { color: var(--white); }
+  .concept button { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: 6px 14px; font: 600 13px var(--text); cursor: pointer; }
+
+  /* Header */
+  header.site { background: rgba(250, 246, 239, .96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; backdrop-filter: blur(6px); }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 78px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 46px; height: 46px; }
+  .brand .name { font-family: var(--display); font-weight: 600; font-size: 22px; color: var(--navy); line-height: 1; }
+  .brand .tag { font-size: 11.5px; color: var(--muted); letter-spacing: .2px; margin-top: 4px; }
+  nav.main { display: flex; align-items: center; gap: 26px; }
+  nav.main a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 16.5px; }
+  nav.main a:hover { color: var(--blue); }
+  nav.main .btn { padding: 11px 20px; font-size: 16px; }
+  .menu-btn { display: none; background: none; border: 0; font-size: 26px; color: var(--navy); }
+
+  /* Hero */
+  .hero { padding: 64px 0 40px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+  .hero h1 em { font-style: normal; color: var(--blue); }
+  .hero .ctas { display: flex; gap: 14px; flex-wrap: wrap; margin: 28px 0 10px; }
+  .hero .small { font-size: 15.5px; color: var(--muted); }
+  .hero-media { position: relative; }
+  .hero-media .photo { border-radius: 26px; overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 5 / 4.4; }
+  .hero-media .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+  .float-card { position: absolute; left: -28px; bottom: 26px; background: var(--white); border-radius: 16px; padding: 16px 18px; box-shadow: var(--shadow); max-width: 270px; }
+  .float-card .k { font-family: var(--display); font-size: 26px; color: var(--navy); font-weight: 600; line-height: 1; }
+  .float-card .v { font-size: 15px; color: var(--muted); margin-top: 6px; }
+
+  .trust { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
+  .trust .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .trust .item { padding: 22px 20px; border-right: 1px solid var(--line); display: flex; gap: 12px; align-items: flex-start; }
+  .trust .item:last-child { border-right: 0; }
+  .trust .ico { flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--sky-soft); color: var(--blue); display: grid; place-items: center; font-weight: 700; font-size: 16px; }
+  .trust .t { font-weight: 600; font-size: 16px; color: var(--navy); line-height: 1.3; }
+  .trust .d { font-size: 14.5px; color: var(--muted); line-height: 1.4; margin-top: 2px; }
+
+  section { padding: 84px 0; }
+  .center { text-align: center; }
+  .center .lead { margin-left: auto; margin-right: auto; }
+
+  /* What is SEB */
+  .seb { background: var(--white); }
+  .seb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .letters { display: flex; gap: 10px; margin: 6px 0 22px; flex-wrap: wrap; }
+  .letters span { font-family: var(--display); font-size: 18px; background: var(--sky-soft); color: var(--navy); border-radius: 12px; padding: 8px 14px; }
+  .letters b { font-size: 26px; color: var(--blue); margin-right: 2px; }
+  .tiers { display: grid; gap: 12px; }
+  .tier { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; background: var(--cream); border-radius: 14px; padding: 16px 18px; }
+  .tier .lvl { font-family: var(--display); font-weight: 600; color: var(--white); text-align: center; border-radius: 10px; padding: 12px 6px; font-size: 16px; line-height: 1.2; }
+  .t3 .lvl { background: var(--sky); color: var(--navy); }
+  .t2 .lvl { background: var(--blue); }
+  .t1 .lvl { background: var(--navy); }
+  .tier .what { font-size: 16px; color: var(--muted); }
+  .tier .what strong { color: var(--navy); display: block; font-size: 17px; }
+
+  /* Who */
+  .who { padding: 0; }
+  .who-strip { background: var(--navy); color: #d9e4f0; border-radius: 22px; padding: 34px 40px; display: grid; grid-template-columns: 1.1fr 2fr; gap: 30px; align-items: center; margin-top: -42px; position: relative; }
+  .who-strip h3 { color: var(--white); margin: 0; }
+  .who-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .who-list span { border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 8px 14px; font-size: 15.5px; color: var(--white); }
+
+  /* Services */
+  .services .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 40px; }
+  .svc { background: var(--white); border-radius: 22px; padding: 34px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .svc .tag { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); background: var(--sky-soft); border-radius: 999px; padding: 5px 12px; margin-bottom: 16px; align-self: flex-start; }
+  .svc .best { font-size: 16.5px; color: var(--muted); margin-bottom: 18px; }
+  .svc .best strong { color: var(--navy); }
+  .svc ul { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 10px; }
+  .svc li { padding-left: 28px; position: relative; font-size: 16.5px; }
+  .svc li::before { content: ""; position: absolute; left: 0; top: 7px; width: 14px; height: 14px; border-radius: 50%; background: var(--amber); box-shadow: inset 0 0 0 4px #fff3d6; }
+  .svc .foot { margin-top: auto; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .svc .link { font-weight: 600; text-decoration: none; color: var(--navy); }
+  .svc .callout { background: var(--cream); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; margin-bottom: 20px; }
+  .also { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .also .mini { border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; background: rgba(255,255,255,.6); display: flex; gap: 18px; align-items: flex-start; }
+  .also .mini h3 { font-size: 19px; margin-bottom: 6px; }
+  .also .mini p { font-size: 16px; color: var(--muted); margin-bottom: 8px; }
+  .also .mini a { font-weight: 600; font-size: 16px; text-decoration: none; }
+  .badge { flex: 0 0 auto; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--navy); background: var(--amber); border-radius: 8px; padding: 6px 8px; line-height: 1.2; text-align: center; }
+
+  /* Timeline */
+  .how { background: var(--navy); color: #d6e1ee; }
+  .how h2, .how h3 { color: var(--white); }
+  .how .eyebrow { color: var(--sky); }
+  .how .lead { color: #b9c8d9; }
+  .year { margin-top: 40px; }
+  .year-label { font-family: var(--display); font-size: 20px; color: var(--amber); margin-bottom: 14px; }
+  .terms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .term { background: var(--navy-2); border: 1px solid rgba(255,255,255,.10); border-radius: 16px; padding: 18px; }
+  .term .n { font-size: 12.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+  .term .item { background: rgba(255,255,255,.06); border-radius: 10px; padding: 10px 12px; font-size: 15.5px; color: var(--white); margin-bottom: 8px; line-height: 1.35; }
+  .term .item.key { background: var(--amber); color: var(--navy); font-weight: 600; }
+  .ta { margin-top: 18px; border: 1px dashed rgba(255,255,255,.35); border-radius: 14px; padding: 14px 18px; font-size: 16px; color: var(--white); }
+  .how-foot { margin-top: 34px; display: flex; gap: 22px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+  .how-foot p { margin: 0; max-width: 680px; color: #d6e1ee; font-size: 17px; }
+
+  /* People */
+  .people-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 40px; }
+  .person { background: var(--white); border-radius: 22px; padding: 28px; box-shadow: var(--shadow); display: grid; grid-template-columns: 128px 1fr; gap: 24px; }
+  .person img { width: 128px; height: 128px; object-fit: cover; border-radius: 50%; background: var(--sky-soft); }
+  .person h3 { margin-bottom: 4px; }
+  .person .cred { font-size: 15px; font-weight: 600; color: var(--blue); margin-bottom: 12px; }
+  .person p { font-size: 16.5px; color: var(--muted); }
+  .person a.mail { font-weight: 600; text-decoration: none; font-size: 16px; }
+  .proof { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 26px; margin-top: 26px; }
+  .proof .card { border-radius: 22px; overflow: hidden; background: var(--white); box-shadow: var(--shadow); }
+  .proof .card img { width: 100%; height: 230px; object-fit: cover; }
+  .proof .card .cap { padding: 16px 20px; font-size: 15.5px; color: var(--muted); }
+  .quote { border: 1.5px dashed #d29a1c; background: #fffaf0; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; }
+  .quote .q { font-family: var(--display); font-size: 20px; color: var(--navy); line-height: 1.35; }
+  .quote .who { font-size: 15px; color: var(--muted); margin-top: 16px; }
+
+  /* Podcast */
+  .pod-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: center; }
+  .pod-art { border-radius: 26px; overflow: hidden; box-shadow: var(--shadow); }
+  .guests { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 24px; }
+  .guests span { background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 15px; }
+  .listen { display: flex; gap: 10px; flex-wrap: wrap; }
+  .listen a { text-decoration: none; font-weight: 600; font-size: 15.5px; color: var(--navy); background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px; }
+
+  /* Low commitment */
+  .easy { background: var(--sand); }
+  .easy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+  .easy .opt { background: var(--white); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; }
+  .easy .opt h3 { font-size: 20px; }
+  .easy .opt p { font-size: 16.5px; color: var(--muted); }
+  .easy .opt a { margin-top: auto; font-weight: 600; text-decoration: none; }
+
+  /* Final CTA */
+  .book { background: var(--white); }
+  .book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .steps { counter-reset: s; display: grid; gap: 14px; margin: 24px 0; }
+  .step { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; }
+  .step::before { counter-increment: s; content: counter(s); width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: var(--white); display: grid; place-items: center; font-weight: 700; }
+  .step strong { display: block; color: var(--navy); }
+  .step span { color: var(--muted); font-size: 16.5px; }
+  .faces { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+  .faces img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 3px solid var(--white); box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+  .faces img + img { margin-left: -22px; }
+  .faces p { margin: 0; font-size: 15.5px; color: var(--muted); }
+  .cal { border: 1px solid var(--line); border-radius: 22px; padding: 24px; background: var(--cream); }
+  .cal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .cal-head strong { font-family: var(--display); font-size: 20px; color: var(--navy); }
+  .cal-head span { font-size: 13.5px; color: var(--muted); }
+  .days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 14px; }
+  .day { text-align: center; background: var(--white); border-radius: 12px; padding: 10px 4px; font-size: 13px; color: var(--muted); border: 1px solid var(--line); }
+  .day b { display: block; font-size: 18px; color: var(--navy); }
+  .day.on { border-color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); }
+  .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .slot { text-align: center; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-weight: 600; font-size: 15.5px; color: var(--navy); }
+  .slot.pick { background: var(--amber); border-color: var(--amber); }
+  .cal .note { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+  footer { background: var(--navy); color: #b9c8d9; padding: 56px 0 30px; font-size: 16px; }
+  footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 30px; }
+  footer h4 { color: var(--white); font: 600 15px var(--text); margin: 0 0 12px; }
+  footer a { color: #d9e4f0; text-decoration: none; display: block; margin-bottom: 8px; }
+  footer .brand img { background: var(--white); border-radius: 50%; padding: 3px; }
+  footer .brand .name { color: var(--white); }
+  .short { display: none; }
+  .trust .ico svg { width: 18px; height: 18px; }
+  footer .brand .tag { color: #b9c8d9; }
+  footer .legal { border-top: 1px solid rgba(255,255,255,.12); margin-top: 36px; padding-top: 18px; font-size: 13.5px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* Design notes (toggle) */
+  .note-pin { display: none; }
+  body.notes .note-pin { display: block; position: relative; z-index: 5; margin: 0 0 18px; background: #fff; border-left: 5px solid #e2574c; border-radius: 10px; padding: 10px 14px; font: 500 13.5px/1.45 var(--text); color: #5b2420; box-shadow: 0 4px 14px rgba(0,0,0,.08); max-width: 760px; }
+  body.notes .note-pin b { color: #b3261e; }
+  body.notes .how .note-pin, body.notes .concept .note-pin { color: #5b2420; }
+
+  @media (max-width: 980px) {
+    nav.main a:not(.btn) { display: none; }
+    .concept .wrap { flex-wrap: wrap; }
+    .hero-grid, .seb-grid, .pod-grid, .book-grid, .services .grid2, .people-grid, .also { grid-template-columns: 1fr; }
+    .hero { padding-top: 36px; }
+    .float-card { left: 14px; bottom: 14px; }
+    .trust .wrap { grid-template-columns: 1fr 1fr; }
+    .trust .item:nth-child(2) { border-right: 0; }
+    .trust .item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .who-strip { grid-template-columns: 1fr; padding: 28px; }
+    .terms { grid-template-columns: 1fr 1fr; }
+    .proof { grid-template-columns: 1fr; }
+    .easy-grid { grid-template-columns: 1fr; }
+    footer .cols { grid-template-columns: 1fr 1fr; }
+    section { padding: 64px 0; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .wrap { padding: 0 18px; }
+    header.site .wrap { height: 66px; }
+    .brand img { width: 38px; height: 38px; }
+    .brand .name { font-size: 19px; }
+    .brand .tag { display: none; }
+    nav.main .btn { padding: 9px 14px; font-size: 15px; }
+    .menu-btn { display: block; padding: 0 0 0 4px; }
+    nav.main { gap: 10px; }
+    .brand { gap: 9px; }
+    .brand .name { white-space: nowrap; font-size: 18px; }
+    .letters span { font-size: 17px; padding: 6px 11px; }
+    .letters b { font-size: 22px; }
+    .also .mini { flex-direction: column; gap: 12px; }
+    .terms { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .term { padding: 14px; }
+    .term .item { font-size: 14.5px; padding: 8px 10px; }
+    .long { display: none; }
+    .short { display: inline; }
+    .concept .wrap span.hide-sm { display: none; }
+    .hero .ctas .btn { width: 100%; justify-content: center; }
+    .trust .wrap { grid-template-columns: 1fr; }
+    .trust .item { border-right: 0; border-bottom: 1px solid var(--line); }
+    .tier { grid-template-columns: 92px 1fr; }
+    .terms { grid-template-columns: 1fr; }
+    .person { grid-template-columns: 1fr; }
+    .svc { padding: 26px; }
+    footer .cols { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="concept">
+  <div class="wrap">
+    <span><strong>Concept mockup for discussion, not the live site.</strong><span class="hide-sm"> Built from SEB Collective's existing content and photos. <span class="ph">[Highlighted items]</span> need Jake and Adam's input.</span></span>
+    <button type="button" id="toggleNotes" aria-pressed="false">Show design notes</button>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <img src="assets/logo.png" alt="SEB Collective logo">
+      <div>
+        <div class="name">SEB Collective</div>
+        <div class="tag">Social, emotional &amp; behavioural support for schools</div>
+      </div>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How we work</a>
+      <a href="#people">About</a>
+      <a href="#podcast">Podcast</a>
+      <a class="btn btn-primary" href="#book"><span class="long">Book a discovery call</span><span class="short">Book a call</span></a>
+      <button class="menu-btn" aria-label="Menu">&#9776;</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="note-pin"><b>Fixes:</b> the old hero said "Welcome to SEB Collective" with no button. Now it says what SEB is and who it's for, with the call to action above the fold. The header has a wordmark and a booking button on every page (the only booking button got 7 clicks in 16 months).</div>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Social, emotional &amp; behavioural (SEB) support for schools</div>
+          <h1>Build stronger systems. Develop staff capability. <em>Improve student outcomes.</em></h1>
+          <p class="lead">We partner with school leaders to design, implement and sustain whole-school approaches to behaviour, wellbeing and learning, using a Multi-Tiered System of Supports (MTSS) that your staff can keep running long after we've gone.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="#book">Book a free discovery call</a>
+            <a class="btn btn-ghost" href="#how">How a partnership works</a>
+          </div>
+          <div class="small">30 minutes · Online via Google Meet · No obligation</div>
+        </div>
+        <div class="hero-media">
+          <div class="photo"><img src="assets/training-room.jpg" alt="SEB Collective running a training day with a school staff team"></div>
+          <div class="float-card">
+            <div class="k">2-year partnerships</div>
+            <div class="v">Assess, train, coach and sustain, one term at a time.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap">
+      <div class="item"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5 7 22l5-3 5 3-1.5-7.5"/></svg></div><div><div class="t">NESA Recognised</div><div class="d">Professional Development Provider</div></div></div>
+      <div class="item"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><div class="t">Board Certified Behaviour Analysts</div><div class="d">BCBA-D and BCBA-led practice</div></div></div>
+      <div class="item"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></div><div><div class="t">15+ years supporting schools</div><div class="d">Australia and the US (Dr Adam Feinberg)</div></div></div>
+      <div class="item"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.4 0 4 1.4 4.6 4"/></svg></div><div><div class="t">Co-chair, APBS Australia</div><div class="d">Association for Positive Behaviour Support</div></div></div>
+    </div>
+  </div>
+
+  <section class="seb" id="what-is-seb">
+    <div class="wrap">
+      <div class="note-pin"><b>Fixes:</b> "SEB" was never explained, yet people search "what is SEB in education" and "what does SEB stand for". This section owns the term and links it to the tiers in the logo. A fuller "What is SEB?" page would sit behind it.</div>
+      <div class="seb-grid">
+        <div>
+          <div class="eyebrow">What is SEB?</div>
+          <h2>Social, emotional and behavioural skills underpin learning.</h2>
+          <div class="letters"><span><b>S</b>ocial</span><span><b>E</b>motional</span><span><b>B</b>ehavioural</span></div>
+          <p>When expectations, routines, acknowledgement and responses to behaviour are consistent across a school, students and staff get safe, positive and predictable learning environments.</p>
+          <p>We help schools build that consistency into everyday systems at every tier of support, rather than relying on individual teachers or one-off programs.</p>
+        </div>
+        <div class="tiers" aria-label="Three tiers of support">
+          <div class="tier t3"><div class="lvl">Tier 3<br>Intensive</div><div class="what"><strong>Individualised support</strong>Functional behaviour assessment, behaviour support planning and de-escalation for students with complex needs.</div></div>
+          <div class="tier t2"><div class="lvl">Tier 2<br>Targeted</div><div class="what"><strong>Small-group support</strong>Data-based identification and practical interventions, such as Check-In Check-Out, with progress monitoring.</div></div>
+          <div class="tier t1"><div class="lvl">Tier 1<br>Universal</div><div class="what"><strong>Whole-school systems</strong>Shared expectations, routines, behaviour-specific praise and calm, consistent responses for every student.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="who">
+    <div class="wrap">
+      <div class="who-strip">
+        <h3>Who we work with</h3>
+        <div class="who-list">
+          <span>Principals and leadership teams</span>
+          <span>Wellbeing and learning support leads</span>
+          <span>Groups of schools and system offices</span>
+          <span>Public, Catholic and independent</span>
+          <span>NSW and nationally</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="note-pin"><b>Fixes:</b> four equal services became the two that SEB actually sells (Jake's answer), each with "best for" and what's included. PD and coaching sit underneath as components or entry points. NESA recognition is surfaced, and the PD outlines (33 clicks, never captured) get a proper call to action.</div>
+      <div class="center">
+        <div class="eyebrow">Two ways to work with us</div>
+        <h2>Ongoing support that sticks, for one school or many</h2>
+        <p class="lead">Both follow the same structure. Choose the one that fits how your school wants to work.</p>
+      </div>
+      <div class="grid2">
+        <article class="svc">
+          <span class="tag">For one school</span>
+          <h3>Individual School Consultation</h3>
+          <p class="best"><strong>Best for:</strong> a school ready to build or strengthen its systems with support tailored to its own data, priorities and School Excellence Plan.</p>
+          <ul>
+            <li>Needs assessment, report and implementation roadmap</li>
+            <li>Staff training days each term, aligned to your plan</li>
+            <li>Coaches meetings each term with your leadership team</li>
+            <li>12 hours a year of on-site technical assistance</li>
+            <li>Fidelity of implementation assessment in Year 2</li>
+          </ul>
+          <div class="callout"><strong>Typical engagement:</strong> two years, starting with a needs assessment in Term 1. <span class="ph">[Indicative investment]</span></div>
+          <div class="foot">
+            <a class="btn btn-primary" href="#book">Discuss your school</a>
+            <a class="link" href="#how">See the 2-year plan →</a>
+          </div>
+        </article>
+        <article class="svc">
+          <span class="tag">For groups of schools</span>
+          <h3>Community of Practice</h3>
+          <p class="best"><strong>Best for:</strong> schools that want to implement together, learn from each other and share the cost of training days.</p>
+          <ul>
+            <li>Initial needs assessment for each school</li>
+            <li>Shared team training on core MTSS-B systems</li>
+            <li>Coaching support that builds local capability</li>
+            <li>School-level technical assistance on site</li>
+            <li>A network of schools solving the same problems</li>
+          </ul>
+          <div class="callout"><strong>Information session for school leaders:</strong> <span class="ph">[Term 4, 2026: date and time]</span>. Hear how the model works and whether it suits your school.</div>
+          <div class="foot">
+            <a class="btn btn-primary" href="#easy">Register for the info session</a>
+            <a class="link" href="#how">How it works →</a>
+          </div>
+        </article>
+      </div>
+      <div class="also">
+        <div class="mini">
+          <span class="badge">NESA<br>Recognised</span>
+          <div>
+            <h3>Professional Development</h3>
+            <p>Tier 1, 2 and 3 training that turns evidence into practical strategies educators can use straight away. Delivered as part of a partnership or on its own.</p>
+            <a href="#easy">Get the Tier 1 to 3 PD outlines →</a>
+          </div>
+        </div>
+        <div class="mini">
+          <span class="badge">In-class<br>support</span>
+          <div>
+            <h3>Classroom Coaching</h3>
+            <p>Observation, feedback and coaching that bridges the gap between professional learning and daily classroom practice.</p>
+            <a href="#book">Ask about classroom coaching →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="note-pin"><b>Fixes:</b> what a partnership involves was nowhere on the site. This is Jake's own two-year structure, made visible, so a principal can take it into a budget conversation. Pricing is a placeholder until Jake confirms how they quote.</div>
+      <div class="eyebrow">How a partnership works</div>
+      <h2>Two years, one term at a time</h2>
+      <p class="lead">A clear structure your leadership team can plan around, built so the systems keep working after we step back.</p>
+
+      <div class="year">
+        <div class="year-label">Year 1: assess and build</div>
+        <div class="terms">
+          <div class="term"><div class="n">Term 1</div><div class="item key">Initial needs assessment</div><div class="item">Coaches meeting: review findings and agree the training plan</div></div>
+          <div class="term"><div class="n">Term 2</div><div class="item key">Training day</div><div class="item">Coaches meeting</div></div>
+          <div class="term"><div class="n">Term 3</div><div class="item key">Training day</div><div class="item">Coaches meeting</div></div>
+          <div class="term"><div class="n">Term 4</div><div class="item key">Training day</div><div class="item">Coaches meeting</div></div>
+        </div>
+      </div>
+      <div class="year">
+        <div class="year-label">Year 2: embed and sustain</div>
+        <div class="terms">
+          <div class="term"><div class="n">Term 1</div><div class="item key">Training day</div><div class="item">Coaches meeting</div></div>
+          <div class="term"><div class="n">Term 2</div><div class="item key">Training day</div><div class="item">Coaches meeting</div></div>
+          <div class="term"><div class="n">Term 3</div><div class="item key">Training day</div><div class="item">Coaches meeting</div></div>
+          <div class="term"><div class="n">Term 4</div><div class="item key">Training day</div><div class="item">Coaches meeting</div><div class="item">On-site fidelity of implementation assessment</div></div>
+        </div>
+      </div>
+      <div class="ta">Plus <strong>12 hours of direct, school-based technical assistance</strong> for your MTSS leadership team every year.</div>
+      <div class="how-foot">
+        <p>Our goal is to leave your school with the capability, systems and confidence to keep improving long after the partnership ends. <span class="ph">[How investment is quoted, e.g. per school, per year]</span></p>
+        <a class="btn btn-primary" href="#book">Talk it through with us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="people" id="people">
+    <div class="wrap">
+      <div class="note-pin"><b>Fixes:</b> faces, consistent credentials and direct emails were only on About (and the credentials differed between pages). Real photos of SEB at work replace generic imagery. Quote cards are <b>placeholders only</b>: no client schools named, and wording must be checked against the BACB Ethics Code and Adam's registration rules before anything is published.</div>
+      <div class="center">
+        <div class="eyebrow">Who you'll work with</div>
+        <h2>You'll work directly with the founders</h2>
+        <p class="lead">The people you meet on the discovery call are the people who assess, train and coach your team.</p>
+      </div>
+      <div class="people-grid">
+        <div class="person">
+          <img src="assets/adam.jpg" alt="Dr Adam Feinberg">
+          <div>
+            <h3>Dr Adam Feinberg</h3>
+            <div class="cred">PhD, BCBA-D · Psychologist</div>
+            <p>Supports school leadership teams to build sustainable behaviour and wellbeing systems, with particular expertise in MTSS and coaching-led implementation. 15+ years across Australia and the US; co-chair of APBS Australia.</p>
+            <a class="mail" href="mailto:adam@sebcollective.com.au">adam@sebcollective.com.au</a>
+          </div>
+        </div>
+        <div class="person">
+          <img src="assets/jake.jpg" alt="Jake Lewis">
+          <div>
+            <h3>Jake Lewis</h3>
+            <div class="cred">BCBA · Host, The Behavioural Deep Dive</div>
+            <p>Specialises in designing and implementing MTSS in schools across the public and private sectors, and is an invited speaker at network and professional learning events.</p>
+            <a class="mail" href="mailto:jake@sebcollective.com.au">jake@sebcollective.com.au</a>
+          </div>
+        </div>
+      </div>
+      <div class="proof">
+        <div class="card"><img src="assets/stage.jpg" alt="Presenting on progress monitoring at an education conference"><div class="cap">Presenting on progress monitoring and decision rules. <span class="ph">[Event name]</span></div></div>
+        <div class="quote"><div class="q">"<span class="ph">[Anonymised quote from a principal about working with SEB, if permitted]</span>"</div><div class="who">Principal, <span class="ph">[sector]</span> school, NSW</div></div>
+        <div class="card"><img src="assets/presenting.jpg" alt="Presenting at an APBS network event"><div class="cap">Conference talks and publications. <span class="ph">[List of recent talks]</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="podcast" id="podcast" style="padding-top:20px">
+    <div class="wrap">
+      <div class="note-pin"><b>Fixes:</b> about 40% of visits start on podcast pages, which never led anywhere else. Here the podcast builds credibility and points listeners to the next step. Each episode page would end with an "Apply this in your school" block.</div>
+      <div class="pod-grid">
+        <div class="pod-art"><img src="assets/podcast.jpg" alt="The Behavioural Deep Dive podcast artwork"></div>
+        <div>
+          <div class="eyebrow">The Behavioural Deep Dive podcast</div>
+          <h2>Learn from leading voices in education</h2>
+          <p class="lead">Practical conversations that bridge research and practice on behaviour, wellbeing and implementation. <span class="ph">[~570 plays a month: confirm]</span></p>
+          <div class="guests">
+            <span>Dr Russ Fox</span><span>Jennifer Payne</span><span>Dr Adam Feinberg</span><span>Dr Erin Leif</span><span>Dr Lorna Hepburn</span><span>Dr Lisa McKay-Brown</span><span>Paul Leitch</span><span>Karina Stocker</span><span>Brendan Lee</span>
+          </div>
+          <div class="listen">
+            <a href="#">Spotify</a><a href="#">Apple Podcasts</a><a href="#">YouTube</a><a href="#">All episodes →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="easy" id="easy">
+    <div class="wrap">
+      <div class="note-pin"><b>Fixes:</b> the only way in was a 30-minute call. These are lower-commitment steps for leaders who are still exploring, and each one captures who they are.</div>
+      <div class="center">
+        <div class="eyebrow">Not ready for a call?</div>
+        <h2>Start where you are</h2>
+      </div>
+      <div class="easy-grid">
+        <div class="opt"><h3>Get the PD outlines</h3><p>The Tier 1, 2 and 3 training components in one pack, to share with your leadership team.</p><a href="#">Email me the outlines →</a></div>
+        <div class="opt"><h3>Join the information session</h3><p>Find out how the Community of Practice works and whether it suits your school. <span class="ph">[Date]</span></p><a href="#">Register interest →</a></div>
+        <div class="opt"><h3>Listen first</h3><p>Hear how leading researchers and practitioners approach behaviour, wellbeing and MTSS.</p><a href="#podcast">Explore the podcast →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <div class="note-pin"><b>Fixes:</b> on the old Contact page the calendar sat two clicks and two pages away, below a "What to Expect" section; 3 sessions in 12 months reached it. Here the calendar is on the page, with faces and direct emails.</div>
+      <div class="book-grid">
+        <div>
+          <div class="eyebrow">Free discovery call</div>
+          <h2>Let's talk about your school's priorities</h2>
+          <div class="steps">
+            <div class="step"><div><strong>Pick a time that suits you</strong><span>30 minutes, online via Google Meet. No obligation.</span></div></div>
+            <div class="step"><div><strong>Tell us about your context</strong><span>Your current systems, priorities and the outcomes you're hoping for.</span></div></div>
+            <div class="step"><div><strong>Get a clear next step</strong><span>If we're a good fit, we'll outline what support could look like. If not, we're happy to point you in the right direction.</span></div></div>
+          </div>
+          <div class="faces">
+            <img src="assets/adam.jpg" alt=""><img src="assets/jake.jpg" alt="">
+            <p>You'll speak with Adam or Jake. Prefer email? <a href="mailto:jake@sebcollective.com.au">jake@sebcollective.com.au</a></p>
+          </div>
+        </div>
+        <div class="cal" aria-label="Booking calendar (illustrative)">
+          <div class="cal-head"><strong>Choose a time</strong><span>Times shown in AEDT</span></div>
+          <div class="days">
+            <div class="day">Mon<b>13</b></div><div class="day on">Tue<b>14</b></div><div class="day">Wed<b>15</b></div><div class="day">Thu<b>16</b></div><div class="day">Fri<b>17</b></div>
+          </div>
+          <div class="slots">
+            <div class="slot">9:00</div><div class="slot pick">10:30</div><div class="slot">12:00</div>
+            <div class="slot">1:30</div><div class="slot">3:00</div><div class="slot">4:30</div>
+          </div>
+          <a class="btn btn-primary" href="#" style="width:100%;justify-content:center;margin-top:16px">Continue</a>
+          <div class="note">Illustrative: the live Wix Bookings calendar would be embedded here.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="#"><img src="assets/logo.png" alt=""><div><div class="name">SEB Collective</div><div class="tag">Social, emotional &amp; behavioural support for schools</div></div></a>
+        <p style="margin-top:16px">NESA Recognised Professional Development Provider.</p>
+      </div>
+      <div><h4>Services</h4><a href="#services">Individual School Consultation</a><a href="#services">Community of Practice</a><a href="#services">Professional Development</a><a href="#services">Classroom Coaching</a></div>
+      <div><h4>Explore</h4><a href="#how">How we work</a><a href="#">What is SEB?</a><a href="#podcast">Podcast</a><a href="#people">About</a></div>
+      <div><h4>Contact</h4><a href="mailto:jake@sebcollective.com.au">jake@sebcollective.com.au</a><a href="mailto:adam@sebcollective.com.au">adam@sebcollective.com.au</a><a href="#">LinkedIn</a><a href="#book">Book a discovery call</a></div>
+    </div>
+    <div class="legal"><span>© 2026 SEB Collective. All rights reserved.</span><a href="#" style="display:inline">Privacy policy</a></div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('toggleNotes');
+    function set(on) {
+      document.body.classList.toggle('notes', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.textContent = on ? 'Hide design notes' : 'Show design notes';
+    }
+    btn.addEventListener('click', function () { set(!document.body.classList.contains('notes')); });
+    if (location.hash === '#notes') set(true);
+  })();
+</script>
+</body>
+</html>
